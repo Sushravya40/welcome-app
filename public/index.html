@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Party</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="glass-container">
+        <h1>Join the Party</h1>
+        <p class="subtitle">Enter your name to begin the celebration</p>
+        
+        <form id="welcomeForm">
+            <div class="input-group">
+                <input type="text" id="nameInput" placeholder="Enter your name..." required autocomplete="off">
+            </div>
+            <button type="submit" id="submitBtn">Celebrate</button>
+        </form>
+
+        <div id="resultMessage" class="hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
