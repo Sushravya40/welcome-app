@@ -14,16 +14,18 @@ document.getElementById('welcomeForm').addEventListener('submit', async (e) => {
     submitBtn.disabled = true;
 
     try {
-        // Send to backend
-        const response = await fetch('/api/save-name', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ name })
-        });
+        // Simulate backend delay
+        await new Promise(resolve => setTimeout(resolve, 800));
 
-        const data = await response.json();
+        // Save name to localStorage (simulated backend)
+        let savedNames = JSON.parse(localStorage.getItem('namesList') || '[]');
+        savedNames.push(name);
+        localStorage.setItem('namesList', JSON.stringify(savedNames));
+
+        const data = {
+            success: true,
+            message: `hello ${name}, welcome`
+        };
 
         if (data.success) {
             // Hide form and show message
@@ -42,7 +44,7 @@ document.getElementById('welcomeForm').addEventListener('submit', async (e) => {
         console.error('Error:', error);
         submitBtn.textContent = 'Celebrate';
         submitBtn.disabled = false;
-        alert('Something went wrong connecting to the backend!');
+        alert('Something went wrong!');
     }
 });
 
